@@ -2788,6 +2788,7 @@ public class DefaultCodegen implements CodegenConfig {
             // non-composed object type with no properties + additionalProperties
             // additionalProperties must be null, ObjectSchema, or empty Schema
             addAdditionPropertiesToCodeGenModel(m, schema);
+            m.setIsFreeFormObject(true);
         }
         // process 'additionalProperties'
         setAddProps(schema, m);
@@ -7002,6 +7003,7 @@ public class DefaultCodegen implements CodegenConfig {
             codegenParameter.isContainer = Boolean.TRUE;
             codegenParameter.isMap = Boolean.TRUE;
             codegenParameter.isNullable = codegenProperty.isNullable;
+            codegenParameter.isFreeFormObject = codegenProperty.isFreeFormObject;
 
             // set nullable
             setParameterNullable(codegenParameter, codegenProperty);
